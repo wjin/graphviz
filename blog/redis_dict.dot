@@ -1,0 +1,34 @@
+digraph dict {
+    rankdir = LR;
+    node [shape=record, style = filled];
+
+    // nodes
+    dict [label="dict | type | privdata |<ht> ht[2] | rehashidx: -1 | iterators: 0", fillcolor = "greenyellow"];
+
+    ht0 [label="<dictht>dictht |<table> table | size: 4 | sizemask: 3 | used: 3", fillcolor = "deepskyblue"];
+    ht1 [label="<dictht>dictht |<table> table | size: 0 | sizemask: 0 | used: 0", fillcolor = "deepskyblue"];
+
+    bucket [label="<head>dictEntry**\n(bucket) |<table0> 0 |<table1> 1 |<table2> 2 |<table3> 3 ", fillcolor = "cyan"];
+
+    entry1 [label="<head>dictEntry |{key1 | value1 |<next>next}", fillcolor = "cornsilk"];
+    entry2 [label="<head>dictEntry |{key2 | value2 |<next>next}", fillcolor = "cornsilk"];
+    entry3 [label="<head>dictEntry |{key3 | value3 |<next>next}", fillcolor = "cornsilk"];
+
+    null0 [label="NULL", shape=plaintext];
+    null1 [label="NULL", shape=plaintext];
+    null2 [label="NULL", shape=plaintext];
+    null3 [label="NULL", shape=plaintext];
+    tablenull [label="NULL", shape=plaintext];
+
+    // lines
+    dict:ht -> ht0:dictht [label="ht[0]"];
+    dict:ht -> ht1:dictht [label="ht[1]"];
+
+    ht0:table -> bucket:head;
+    ht1:table -> tablenull;
+
+    bucket:table0 -> entry1:head; entry1:next -> null0;
+    bucket:table1 -> null1;
+    bucket:table2 -> entry2:head; entry2:next -> null2;
+    bucket:table3 -> entry3:head; entry3:next -> null3;
+}
