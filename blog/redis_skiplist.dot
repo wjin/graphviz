@@ -1,0 +1,25 @@
+digraph skiplist {
+    rankdir = LR;
+    node [shape=record, style = filled];
+
+    // nodes
+    node1 [label="{level2 : span=2 | <forward2> forward} | {level1 : span=1 | <forward1> forward} | obj | score: 2 | <backward> backward | node1", fillcolor = "deepskyblue"];
+
+    node2 [label="{<span1> span=1 | <forward1> forward} | obj | score: 3 | <backward> backward | node2", fillcolor = "deepskyblue"];
+
+    node3 [label="{<span2> span=0 | <forward2>forward} | {<span1> span=0 | <forward1> forward} | obj | score: 5 | <backward> backward | node3", fillcolor = "deepskyblue"];
+
+    null1 [label="NULL", shape=plaintext];
+    null2 [label="NULL", shape=plaintext];
+
+    // lines
+    node1:forward1 -> node2:span1;
+    node1:forward2 -> node3:span2;
+
+    node2:backward -> node1:backward;
+    node2:forward1 -> node3:span1;
+
+    node3:backward -> node2:backward;
+    node3:forward1 -> null1;
+    node3:forward2 -> null2;
+}
