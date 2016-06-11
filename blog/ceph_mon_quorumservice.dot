@@ -1,0 +1,15 @@
+digraph G {
+    node[shape=record]
+    edge[dir=back, arrowtail=empty]
+
+    base[label="{QuorumService|+ *tick_event: Context|+ *mon: Monitor\l}"]
+    da[label="{ConfigKeyService|+ *paxos: Paxos\l}"]
+    db[label="{HealthService|\l}"]
+    dc[label="{HealthMonitor|\l}"]
+    dbd[label="{DataHealthService|\l}"]
+
+	base->da
+	base->db
+	base->dc
+	db->dbd
+}

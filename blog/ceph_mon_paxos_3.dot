@@ -1,0 +1,10 @@
+digraph paxos_leader {
+	active->updating[label="propose"];
+	updating->writing[label="accept all"];
+	writing->refresh[label="commit finish"];
+	refresh->active[label="refresh finish"];
+
+	active->updating_previous[label="propose uncommitted"];
+	updating_previous->writing_previous[label="accept all"];
+	writing_previous->refresh[label="commit finish"];
+}

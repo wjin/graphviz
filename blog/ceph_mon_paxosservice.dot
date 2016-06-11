@@ -1,0 +1,19 @@
+digraph G {
+    node[shape=record]
+    edge[dir=back, arrowtail=empty]
+
+    base[label="{PaxosService|+ *paxos: Paxos|+ *mon: Monitor\l}"]
+    da[label="{MonmapMonitor|+ *pending_map: MonMap\l}"]
+    db[label="{OSDMonitor|+ osdmap: OSDMap\l}"]
+    dc[label="{PGMonitor|+ pg_map: PGMap\l}"]
+    dd[label="{MDSMonitor|\l}"]
+    de[label="{AuthMonitor|\l}"]
+    df[label="{LogMonitor|\l}"]
+
+	base->da
+	base->db
+	base->dc
+	base->dd
+	base->de
+	base->df
+}

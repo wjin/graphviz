@@ -1,0 +1,6 @@
+digraph paxos_leader {
+	active->updating[label="propose"];
+	updating->writing[label="accept all messages"];
+	writing->refresh[label="commit finish"];
+	refresh->active[label="refresh finish"];
+}

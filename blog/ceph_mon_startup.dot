@@ -1,0 +1,5 @@
+digraph mon_stat {
+	probing->electing->leader->shutdown;
+	electing->peon->shutdown;
+	probing->synchronizing->probing;
+}

@@ -1,0 +1,5 @@
+digraph paxos_leader {
+	rankdir=LR;
+	active->updating[label="message propose"];
+	updating->active[label="message lease"];
+}
