@@ -1,0 +1,13 @@
+digraph G {
+    node[shape=record]
+    edge[dir=back, arrowtail=empty]
+
+    base[label="{NetworkStack|+ workers: vector\<Worker*\>\l}"]
+    da[label="{PosixNetworkStack|+ threads: vector\<std::thread\>\l}"]
+    db[label="{DPDKStack|\l}"]
+    dc[label="{RDMAStack|\l}"]
+
+	base->da
+	base->db
+	base->dc
+}
