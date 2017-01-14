@@ -1,0 +1,29 @@
+digraph G {
+	subgraph G1 {
+			node[shape=record]
+			edge[dir=back, arrowtail=empty]
+
+			base[label="{ConnectedSocketImpl|\l}"]
+			da[label="{PosixConnectedSocketImpl|\l}"]
+			db[label="{NativeConnectedSocketImpl|\l}"]
+			dc[label="{RDMAConnectedSocketImpl|\l}"]
+
+			base->da
+			base->db
+			base->dc
+	}
+
+	subgraph G2 {
+			node[shape=record]
+			edge[dir=back, arrowtail=empty]
+
+			base2[label="{ServerSocketImpl|\l}"]
+			da2[label="{PosixServerSocketImpl|\l}"]
+			db2[label="{DPDKServerSocketImpl|\l}"]
+			dc2[label="{RDMAServerSocketImpl|\l}"]
+
+			base2->da2
+			base2->db2
+			base2->dc2
+	}
+}
