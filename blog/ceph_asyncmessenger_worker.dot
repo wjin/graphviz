@@ -1,0 +1,13 @@
+digraph G {
+    node[shape=record]
+    edge[dir=back, arrowtail=empty]
+
+    base[label="{Worker|+ center: EventCenter\l}"]
+    da[label="{PosixWorker|+ net: NetHandler\l}"]
+    db[label="{DPDKWorker|\l}"]
+    dc[label="{RDMAWorker|\l}"]
+
+	base->da
+	base->db
+	base->dc
+}
