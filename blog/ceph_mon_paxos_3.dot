@@ -4,7 +4,7 @@ digraph paxos_leader {
 	writing->refresh[label="commit finish"];
 	refresh->active[label="refresh finish"];
 
-	active->updating_previous[label="propose uncommitted"];
+	recovering->updating_previous[label="propose uncommitted"];
 	updating_previous->writing_previous[label="accept all"];
 	writing_previous->refresh[label="commit finish"];
 }
