@@ -1,0 +1,13 @@
+digraph G {
+    node[shape=record]
+    edge[dir=back, arrowtail=empty]
+
+    base[label="{BlockDevice|\l}"]
+    da[label="{KernelDevice|+ fd_direct: int|+ fd_buffered: int\l}"]
+    db[label="{NVMEDevice|\l}"]
+    dc[label="{PMEMDevice|\l}"]
+
+	base->da
+	base->db
+	base->dc
+}
